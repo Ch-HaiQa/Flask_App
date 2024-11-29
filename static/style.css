@@ -1,0 +1,30 @@
+body {
+  background-color: #f8f9fa; /* Light background */
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to cards */
+  border-radius: 10px;
+}
+
+.card-img-top {
+  border-radius: 50%; /* Make image circular */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 20px auto 10px; /* Center image */
+}
+
+.card-title {
+  color: #343a40; /* Dark gray color */
+  font-weight: bold;
+}
+
+.list-group-item {
+  border: none;
+  padding: 10px 15px;
+}
+
+.list-group-item strong {
+  color: #6c757d; /* Lighter gray for labels */
+}
