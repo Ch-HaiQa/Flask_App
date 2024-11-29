@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block content %}
+<!-- Portfolio Template -->
+<section class="portfolio-section bg-light py-5">
+  <div class="container">
+    <!-- Profile Header -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <img
+          src="{{ url_for('static', filename=portfolio.profile_picture) }}"
+          class="rounded-circle img-thumbnail mb-3"
+          alt="Profile Picture"
+          width="150"
+        />
+        <h2 class="text-dark">
+          {{ portfolio.first_name }} {{ portfolio.last_name }}
+        </h2>
+        <p class="lead text-muted">{{ portfolio.bio }}</p>
+      </div>
+    </div>
+
+    <!-- Portfolio Information Section -->
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Contact Information</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Email:</strong> {{ portfolio.email }}
+              </li>
+              <li class="list-group-item">
+                <strong>Phone:</strong> {{ portfolio.phone }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Projects or Details (Optional) -->
+    <!-- Add more sections here if you want to display specific projects or skills -->
+
+    <!-- Download PDF Section -->
+    <div class="text-center">
+      <a
+        href="{{ url_for('portfolio_pdf') }}"
+        class="btn btn-lg btn-dark text-white px-5 py-2"
+        style="background-color: darkblue"
+        >Download Portfolio as PDF</a
+      >
+    </div>
+  </div>
+</section>
+{% endblock %}

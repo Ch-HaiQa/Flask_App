@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block content %}
+<h2>Create Your Portfolio</h2>
+<form method="POST" action="/create-portfolio">
+  <div class="mb-3">
+    <label for="first_name" class="form-label">First Name</label>
+    <input type="text" class="form-control" name="first_name" required />
+  </div>
+  <div class="mb-3">
+    <label for="last_name" class="form-label">Last Name</label>
+    <input type="text" class="form-control" name="last_name" required />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" required />
+  </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" name="phone" required />
+  </div>
+  <div class="mb-3">
+    <label for="profile_picture" class="form-label">Profile Picture</label>
+    <select class="form-control" name="profile_picture">
+      {% for image in images %}
+      <option value="{{ image }}">{{ image }}</option>
+      {% endfor %}
+    </select>
+    <div class="mt-2">
+      <img
+        id="preview"
+        src="{{ images[0] }}"
+        alt="Profile Picture Preview"
+        width="150"
+        class="img-thumbnail"
+      />
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="bio" class="form-label">Short Bio</label>
+    <textarea class="form-control" name="bio" rows="3" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-custom">Submit</button>
+</form>
+
+<script>
+  const selectImage = document.querySelector('select[name="profile_picture"]');
+  const previewImage = document.getElementById("preview");
+
+  selectImage.addEventListener("change", function () {
+    const selectedImage = selectImage.value;
+    previewImage.src = `{{ url_for('static', filename='') }}${selectedImage}`;
+  });
+</script>
+{% endblock %}
